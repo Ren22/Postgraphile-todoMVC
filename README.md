@@ -1,9 +1,7 @@
-# React-todoMVC
+# Fullstack ToDo using [PostGraphile](https://www.graphile.org/postgraphile/)
 
-It seemed that http://todomvc.com/ didn't have a good react example.
+## Usage
 
-The only one I [saw](https://github.com/tastejs/todomvc/tree/gh-pages/examples/react) used ES5
+You'll need to [install dbmate](https://github.com/amacneil/dbmate#installation) then copy `.env.example` to `.env` (making any changes if needed) and run `dbmate up`.
 
-This one uses ES6/ES7 and create-react-app
-
-[Live: React-todoMVC](https://chriswiles.github.io/React-todoMVC)
+To start the api run `yarn start`.

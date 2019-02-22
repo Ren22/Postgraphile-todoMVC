@@ -1,20 +1,17 @@
 {
-  "name": "React-todomvc",
-  "version": "0.0.1",
-  "private": true,
-  "devDependencies": {
-    "react-scripts": "^0.6.0"
-  },
+  "name": "Fullstack-Todo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:davbeck/React-todoMVC.git",
+  "author": "David Beck <code@davidbeck.co>",
+  "license": "MIT",
   "dependencies": {
-    "classnames": "^2.2.5",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
-    "todomvc-app-css": "^2.0.6"
+    "@graphile-contrib/pg-simplify-inflector": "^4.0.0-alpha.0",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "postgraphile": "^4.3.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "test": "react-scripts test"
+    "start": "node index.js"
   }
 }
