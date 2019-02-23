@@ -214,4 +214,5 @@ CREATE EVENT TRIGGER postgraphile_watch_drop ON sql_drop
 
 INSERT INTO public.schema_migrations (version) VALUES
     ('20190222030350'),
-    ('20190222174947');
+    ('20190222174947'),
+    ('20190223181643');

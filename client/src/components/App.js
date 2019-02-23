@@ -5,9 +5,13 @@ import "unfetch/polyfill";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import { createHttpLink } from "apollo-link-http";
+import "../Auth";
 
 const client = new ApolloClient();
-client.link = createHttpLink({ uri: "http://localhost:3000/graphql" });
+client.link = createHttpLink({
+  uri: "http://localhost:3000/graphql",
+  credentials: "same-origin",
+});
 
 class App extends Component {
   completeAll = () => {

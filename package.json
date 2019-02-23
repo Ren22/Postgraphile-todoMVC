@@ -7,20 +7,21 @@
   "license": "MIT",
   "dependencies": {
     "@graphile-contrib/pg-simplify-inflector": "^4.0.0-alpha.0",
+    "cookie-parser": "^1.4.4",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.0",
+    "jwks-rsa": "^1.4.0",
     "postgraphile": "^4.3.3"
   },
   "scripts": {
     "start": "node index.js",
     "client": "cd client && yarn start",
-    "dev": "concurrently --kill-others-on-fail \"yarn start\" \"yarn client\"",
+    "dev": "concurrently --kill-others-on-fail \"nodemon index.js\" \"yarn client\"",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "devDependencies": {
-    "client": "cd client && yarn start",
-    "server": "nodemon server.js",
     "concurrently": "^4.1.0",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "nodemon": "^1.18.10"
   }
 }

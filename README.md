@@ -2,6 +2,14 @@
 
 ## Usage
 
-You'll need to [install dbmate](https://github.com/amacneil/dbmate#installation) then copy `.env.example` to `.env` (making any changes if needed) and run `dbmate up`.
+### ENV
 
-To start the api run `yarn start`.
+Make sure to rename both `.env.example` and `client/.env.example` to `.env` and fill out the Auth0 values with your account info.
+
+### dbmate
+
+You'll need to [install dbmate](https://github.com/amacneil/dbmate#installation). To create the db or run any new migrations, run `dbmate up`.
+
+### Starting
+
+To run both the client and the server at the same time in dev mode, run `yarn dev`.
