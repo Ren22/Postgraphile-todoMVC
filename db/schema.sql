@@ -67,6 +67,34 @@ CREATE TABLE app.todo (
 
 
 --
+-- Name: COLUMN todo.id; Type: COMMENT; Schema: app; Owner: -
+--
+
+COMMENT ON COLUMN app.todo.id IS '@omit create,update';
+
+
+--
+-- Name: COLUMN todo.created_at; Type: COMMENT; Schema: app; Owner: -
+--
+
+COMMENT ON COLUMN app.todo.created_at IS '@omit create,update';
+
+
+--
+-- Name: COLUMN todo.updated_at; Type: COMMENT; Schema: app; Owner: -
+--
+
+COMMENT ON COLUMN app.todo.updated_at IS '@omit create,update';
+
+
+--
+-- Name: COLUMN todo.user_id; Type: COMMENT; Schema: app; Owner: -
+--
+
+COMMENT ON COLUMN app.todo.user_id IS '@omit create,update';
+
+
+--
 -- Name: clear_completed(); Type: FUNCTION; Schema: app; Owner: -
 --
 
@@ -223,6 +251,40 @@ CREATE EVENT TRIGGER postgraphile_watch_drop ON sql_drop
 
 
 --
+-- Name: todo delete_todo; Type: POLICY; Schema: app; Owner: -
+--
+
+CREATE POLICY delete_todo ON app.todo FOR DELETE TO todo_user USING ((user_id = app_hidden.current_user_id()));
+
+
+--
+-- Name: todo insert_todo; Type: POLICY; Schema: app; Owner: -
+--
+
+CREATE POLICY insert_todo ON app.todo FOR INSERT TO todo_user WITH CHECK ((user_id = app_hidden.current_user_id()));
+
+
+--
+-- Name: todo select_todo; Type: POLICY; Schema: app; Owner: -
+--
+
+CREATE POLICY select_todo ON app.todo FOR SELECT TO todo_user USING ((user_id = app_hidden.current_user_id()));
+
+
+--
+-- Name: todo; Type: ROW SECURITY; Schema: app; Owner: -
+--
+
+ALTER TABLE app.todo ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: todo update_todo; Type: POLICY; Schema: app; Owner: -
+--
+
+CREATE POLICY update_todo ON app.todo FOR UPDATE TO todo_user USING ((user_id = app_hidden.current_user_id()));
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -235,4 +297,5 @@ INSERT INTO public.schema_migrations (version) VALUES
     ('20190222030350'),
     ('20190222174947'),
     ('20190223181643'),
-    ('20190225022714');
+    ('20190225022714'),
+    ('20190225030150');
