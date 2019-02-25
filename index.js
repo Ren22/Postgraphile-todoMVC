@@ -22,7 +22,6 @@ app.use(
       pgSettings: async req => {
         try {
           const claimes = await parseClaims(req);
-          console.log("claimes", claimes);
 
           return {
             role: "todo_user",

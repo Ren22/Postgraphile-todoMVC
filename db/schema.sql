@@ -16,6 +16,13 @@ CREATE SCHEMA app;
 
 
 --
+-- Name: app_hidden; Type: SCHEMA; Schema: -; Owner: -
+--
+
+CREATE SCHEMA app_hidden;
+
+
+--
 -- Name: app_private; Type: SCHEMA; Schema: -; Owner: -
 --
 
@@ -27,6 +34,17 @@ CREATE SCHEMA app_private;
 --
 
 CREATE SCHEMA postgraphile_watch;
+
+
+--
+-- Name: current_user_id(); Type: FUNCTION; Schema: app_hidden; Owner: -
+--
+
+CREATE FUNCTION app_hidden.current_user_id() RETURNS text
+    LANGUAGE sql STABLE
+    AS $$
+  SELECT nullif(current_setting('user.id', true), '')::text;
+$$;
 
 
 SET default_tablespace = '';
@@ -43,7 +61,8 @@ CREATE TABLE app.todo (
     completed boolean DEFAULT false NOT NULL,
     "order" integer DEFAULT 0 NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
-    updated_at timestamp with time zone DEFAULT now() NOT NULL
+    updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    user_id text DEFAULT app_hidden.current_user_id() NOT NULL
 );
 
 
@@ -215,4 +234,5 @@ CREATE EVENT TRIGGER postgraphile_watch_drop ON sql_drop
 INSERT INTO public.schema_migrations (version) VALUES
     ('20190222030350'),
     ('20190222174947'),
-    ('20190223181643');
+    ('20190223181643'),
+    ('20190225022714');
