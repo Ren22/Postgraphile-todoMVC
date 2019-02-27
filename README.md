@@ -1,5 +1,7 @@
 # Fullstack ToDo using [PostGraphile](https://www.graphile.org/postgraphile/)
 
+This is a sample project that impliments a GraphQL API for the [TodoMVC](http://todomvc.com) project using [PostGraphile](https://www.graphile.org/postgraphile/). You can read more about it [on my blog](https://davidbeck.co/posts/2019-02-25-graphile-and-auth0).
+
 ## Usage
 
 ### ENV
