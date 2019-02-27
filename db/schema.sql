@@ -67,34 +67,6 @@ CREATE TABLE app.todo (
 
 
 --
--- Name: COLUMN todo.id; Type: COMMENT; Schema: app; Owner: -
---
-
-COMMENT ON COLUMN app.todo.id IS '@omit create,update';
-
-
---
--- Name: COLUMN todo.created_at; Type: COMMENT; Schema: app; Owner: -
---
-
-COMMENT ON COLUMN app.todo.created_at IS '@omit create,update';
-
-
---
--- Name: COLUMN todo.updated_at; Type: COMMENT; Schema: app; Owner: -
---
-
-COMMENT ON COLUMN app.todo.updated_at IS '@omit create,update';
-
-
---
--- Name: COLUMN todo.user_id; Type: COMMENT; Schema: app; Owner: -
---
-
-COMMENT ON COLUMN app.todo.user_id IS '@omit create,update';
-
-
---
 -- Name: clear_completed(); Type: FUNCTION; Schema: app; Owner: -
 --
 
@@ -299,4 +271,5 @@ INSERT INTO public.schema_migrations (version) VALUES
     ('20190223181643'),
     ('20190225022714'),
     ('20190225030150'),
-    ('20190225033526');
+    ('20190225033526'),
+    ('20190226174356');

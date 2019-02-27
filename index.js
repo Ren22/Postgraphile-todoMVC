@@ -11,7 +11,8 @@ app.use(cookieParser());
 
 app.use(
   postgraphile(
-    process.env.DATABASE_URL || "postgres://localhost/todo?sslmode=disable",
+    process.env.GRAPHILE_URL ||
+      "postgres://todo_graphile:password@localhost/todo?sslmode=disable",
     "app",
     {
       dynamicJson: true,
@@ -19,6 +20,7 @@ app.use(
       enhanceGraphiql: true,
       graphiql: process.env.NODE_ENV !== "production",
       watchPg: process.env.NODE_ENV !== "production",
+      ignoreRBAC: false,
       pgSettings: async req => {
         try {
           const claimes = await parseClaims(req);
